@@ -1,0 +1,123 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Wumpus Cave: Echoes of the Deep",
+      "tone": "Mysterious, Tense, Atmospheric, Tactical",
+      "aesthetic": "Dark Fantasy meets Retro-Terminal. High contrast, glowing accents on deep black backgrounds.",
+      "principles": [
+        "Immersion First: The UI should feel like a survival tool found in the cave.",
+        "Visual Clarity: The grid must be readable despite the dark theme.",
+        "Feedback is Key: Every action (move, shoot) needs immediate visual/audio feedback."
+      ]
+    },
+    "typography": {
+      "font_family": {
+        "heading": "Cinzel, serif",
+        "body": "Inter, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "imports": [
+        "@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap');"
+      ],
+      "usage": {
+        "h1": "font-heading text-4xl md:text-6xl font-black tracking-tighter text-primary-foreground",
+        "h2": "font-heading text-2xl md:text-3xl font-bold tracking-tight text-muted-foreground",
+        "body": "font-body text-base text-muted-foreground leading-relaxed",
+        "stats": "font-mono text-sm tracking-wider uppercase text-accent-foreground"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": "#0a0a0a",
+        "foreground": "#ededed",
+        "card": "#121212",
+        "border": "#2a2a2a",
+        "primary": "#e11d48",
+        "secondary": "#2563eb",
+        "accent": "#f59e0b",
+        "muted": "#525252"
+      },
+      "game_entities": {
+        "wumpus": "text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]",
+        "pit": "text-cyan-500 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]",
+        "gold": "text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]",
+        "bats": "text-purple-500 drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]",
+        "player": "text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]",
+        "fog": "bg-neutral-900/50 backdrop-blur-sm"
+      }
+    },
+    "layout": {
+      "grid_system": "grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 md:p-8 max-w-7xl mx-auto",
+      "game_board": "col-span-1 lg:col-span-8 aspect-square bg-card border border-border rounded-xl shadow-2xl overflow-hidden relative",
+      "sidebar": "col-span-1 lg:col-span-4 flex flex-col gap-6",
+      "spacing": {
+        "container_padding": "p-4 md:p-8",
+        "section_gap": "gap-8"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_rgba(225,29,72,0.3)] transition-all duration-300 font-heading tracking-widest uppercase",
+        "secondary": "bg-secondary/20 text-secondary-foreground hover:bg-secondary/30 border border-secondary/50 backdrop-blur-md",
+        "ghost": "hover:bg-white/5 text-muted-foreground hover:text-white"
+      },
+      "cards": {
+        "base": "bg-card/50 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl",
+        "interactive": "hover:border-primary/50 transition-colors duration-300 cursor-pointer"
+      },
+      "grid_cell": {
+        "base": "aspect-square border border-white/5 flex items-center justify-center text-2xl transition-all duration-300 relative",
+        "hidden": "bg-black/80",
+        "visited": "bg-white/5",
+        "current": "bg-white/10 ring-1 ring-white/20"
+      }
+    },
+    "assets": {
+      "images": {
+        "background_texture": "https://images.unsplash.com/photo-1672264430626-20a10b4ae9e0?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "wumpus_icon": "https://images.unsplash.com/photo-1512275337668-6f0b7786d84c?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "gold_icon": "https://images.unsplash.com/photo-1642211841112-2beeda7bfc07?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "pit_icon": "https://images.unsplash.com/photo-1594145235947-de84b8ec131b?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "bats_icon": "https://images.unsplash.com/photo-1640879011362-6e2660dba2e1?crop=entropy&cs=srgb&fm=jpg&q=85"
+      },
+      "icons": {
+        "library": "lucide-react",
+        "mapping": {
+          "player": "User",
+          "arrow": "ArrowUp",
+          "gold": "Coins",
+          "wumpus": "Skull",
+          "pit": "AlertTriangle",
+          "bats": "Ghost",
+          "breeze": "Wind",
+          "smell": "Biohazard"
+        }
+      }
+    },
+    "motion": {
+      "transitions": "transition-all duration-300 ease-out",
+      "animations": {
+        "pulse": "animate-pulse",
+        "shake": "animate-shake",
+        "fade_in": "animate-in fade-in duration-500"
+      }
+    }
+  },
+  "implementation_guide": {
+    "steps": [
+      "1. Setup Global Styles: Update index.css with the font imports and base dark theme variables.",
+      "2. Create Layout Shell: Build the main App structure with the background texture and grid container.",
+      "3. Build Game Grid: Create the 8x8 grid component. Use CSS Grid. Ensure cells are square.",
+      "4. Implement Game Logic Visuals: Connect cell states (hidden, visited, current) to styles.",
+      "5. Add Controls & Stats: Build the sidebar with the D-Pad (for mobile/mouse users) and Stats panel.",
+      "6. Integrate Modals: Use Shadcn Dialog for 'Game Over' and 'Victory' screens.",
+      "7. Polish: Add the glow effects, transitions, and sound effect triggers (visual cues)."
+    ],
+    "universal_rules": [
+      "Use 'sonner' for all in-game notifications (e.g., 'You smell a wumpus!').",
+      "Ensure the grid is fully responsive. On mobile, it should take full width.",
+      "Do NOT use default scrollbars. Hide them or style them thin.",
+      "All interactive elements must have `data-testid`."
+    ]
+  }
+}
