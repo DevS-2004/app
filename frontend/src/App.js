@@ -259,6 +259,7 @@ function App() {
           <DialogContent className="bg-card border-border max-w-2xl" data-testid="leaderboard-dialog">
             <DialogHeader>
               <DialogTitle className="font-heading text-3xl text-primary">Leaderboard</DialogTitle>
+              <DialogDescription className="sr-only">Top player scores and rankings</DialogDescription>
             </DialogHeader>
             <div className="font-body">
               {leaderboard.length === 0 ? (
