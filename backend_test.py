@@ -169,7 +169,7 @@ class WumpusGameTester:
             "Move Player - Invalid Direction",
             "POST",
             "game/move",
-            200,  # Should return 200 with message about invalid move
+            400,  # Should return 400 for invalid direction
             data={"game_id": self.game_id, "direction": "invalid"}
         )
         
