@@ -224,6 +224,7 @@ function App() {
           <DialogContent className="bg-card border-border max-w-2xl" data-testid="tutorial-dialog">
             <DialogHeader>
               <DialogTitle className="font-heading text-3xl text-primary">How to Play</DialogTitle>
+              <DialogDescription className="sr-only">Game instructions and tutorial</DialogDescription>
             </DialogHeader>
             <div className="font-body text-muted-foreground space-y-4">
               <div>
